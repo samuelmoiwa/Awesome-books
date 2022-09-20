@@ -1,53 +1,10 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+## Copyright 2021, [YOUR NAME]
 
-# Awesome Books
+###### Please delete this line and the next one
+###### APP TYPE can be a webpage/website, a web app, a software and so on
 
-> Description the project.
-- simple HTML & javaScript code, that displays list of added    books by the user in the browser.
-- configure with linters 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this [APP TYPE] and associated documentation files, to deal in the [APP TYPE] without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the [APP TYPE], and to permit persons to whom the [APP TYPE] is furnished to do so, subject to the following conditions:
 
-# Getting Started
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the [APP TYPE].
 
-**please get your browser update. To get a local copy up and running follow these simple steps.**
-
-Run the command below from the terminal
-
-- git clone in your terminal
-- cd awesome-books
-- start index.html
-
-## Built With
-
-- Html & Javascript
-
-## Author
-
-👤 **Abdulai Samuel Moiwa**
-
-- GitHub: [@githubhandle](https://github.com/samuelmoiwa)
-- Twitter: [@twitterhandle](https://twitter.com/samuelmoiwa)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ing-abdulai-samuel-moiwa-726340142/)
-
-👤 **Olaoye Oluwatoyin**
-
-- GitHub: [@githubhandle](https://github.com/AbayomiOlaoye)
- 
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-Thanks to microverseinc for the linters config files.
-https://github.com/microverseinc/linters-config <br>
-And the figma design file. <br>
-
-## 📝 License
-
-This project is 
-[licensed](https://github.com/samuelmoiwa/Microverse-Student-Profile-grid/blob/profile_mobile_design/MIT.md) .
+THE [APP TYPE] IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE [APP TYPE] OR THE USE OR OTHER DEALINGS IN THE [APP TYPE].
