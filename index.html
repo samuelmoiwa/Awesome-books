@@ -3,14 +3,29 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Page Title</title>
+  <title>Awesome Books</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-   
 </head>
 <body>
 
+  <h1>Awesome Books</h1>
 
-    <script src='main.js'></script>
+  <div class="book_list"></div>
+
+  <form action="post">
+
+    <div>
+      <input type="text" name="author" id="author" placeholder="Author"/>
+    </div><br/>
+    <div>
+      <input type="text" name="title" id="title" placeholder="Title" />
+    </div><br/>
+
+    <input id="add_btn" type="submit" value="Add"/>
+
+  </form>
+
+  <script src="main.js"></script> 
 </body>
 </html>
