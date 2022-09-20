@@ -30,7 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
   displayItem();
 });
 
+/* save to localStorage */
 
+const saveToLocalStorage = (availableBooks) => 
+localStorage.setItem('availableBooks', JSON.stringify(availableBooks));
 
 /* display items*/
 const displayItem = () => {
