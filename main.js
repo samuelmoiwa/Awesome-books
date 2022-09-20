@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
 const saveToLocalStorage = (availableBooks) => 
 localStorage.setItem('availableBooks', JSON.stringify(availableBooks));
 
+/* get from localStorage */
+
+const getFromLocalStorage = () => {
+  if (JSON.parse(localStorage.getItem('availableBooks'))) 
+  availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
+};
+
 /* display items*/
 const displayItem = () => {
   getFromLocalStorage();
