@@ -54,6 +54,19 @@ const displayItem = () => {
   });
 };
 
+const addBook = (element) => {
+  element.preventDefault();
+  const addedBook = {
+    title: title.value,
+    author: author.value,
+  };
+
+  availableBooks.push(addedBook);
+  clear();
+  ClassLocalStorage.saveToLocalStorage(availableBooks);
+  displayItem();
+};
+
 /* add button */
 addBtn.addEventListener('click', addBook);
 document.addEventListener('DOMContentLoaded', () => {
