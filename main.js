@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const displaySection = document.querySelector('.book_list');
 const addBtn = document.querySelector('#add_btn');
 const title = document.querySelector('#title');
@@ -10,56 +11,28 @@ const clear = () => {
   author.value = '';
 };
 
-/* save to localStorage */
+class ClassLocalStorage {
+  /* save to localStorage */
 
-const saveToLocalStorage = (availableBooks) => localStorage.setItem('availableBooks', JSON.stringify(availableBooks));
+  static saveToLocalStorage = (availableBooks) => localStorage
+    .setItem('availableBooks', JSON.stringify(availableBooks));
 
-/* get from localStorage */
+  /* get from localStorage */
 
-const getFromLocalStorage = () => {
-  if (JSON.parse(localStorage.getItem('availableBooks'))) { availableBooks = JSON.parse(localStorage.getItem('availableBooks')); }
-};
-
-const deleteBook = (index) => {
-  const BookList = availableBooks.filter((book) => book !== availableBooks[index]);
-  saveToLocalStorage(BookList);
-  displayItem();
-};
-
-/* display items */
-const displayItem = () => {
-  getFromLocalStorage();
-  displaySection.innerHTML = '';
-
-  availableBooks.forEach((availableBook, index) => {
-    displaySection.innerHTML += `
-    <div class="availableBook">
-      <div class="books_lis_div"> 
-        <p class="availableBook_title">${availableBook.title}</p>
-        <p class="availableBook_author">${availableBook.author}</p>
-      </div>
-      <button class="remove">Remove</button>
-    </div> `;
-
-    const deleteBtn = document.querySelector('.remove');
-    deleteBtn.addEventListener('click', () => {
-      deleteBook(index);
-    });
-  });
-};
-
-const addBook = (element) => {
-  element.preventDefault();
-  const addedBook = {
-    title: title.value,
-    author: author.value,
+  static getFromLocalStorage = () => {
+    if (JSON.parse(localStorage.getItem('availableBooks'))) {
+      availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
+    }
   };
 
-  availableBooks.push(addedBook);
-  clear();
-  saveToLocalStorage(availableBooks);
-  displayItem();
-};
+  static deleteBook = (index) => {
+    const BookList = availableBooks.filter((book) => book !== availableBooks[index]);
+    this.saveToLocalStorage(BookList);
+    displayItem();
+  };
+}
+
+
 
 /* add button */
 addBtn.addEventListener('click', addBook);
