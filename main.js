@@ -32,7 +32,27 @@ class ClassLocalStorage {
   };
 }
 
+/* display items */
+const displayItem = () => {
+  ClassLocalStorage.getFromLocalStorage();
+  displaySection.innerHTML = '';
 
+  availableBooks.forEach((availableBook, index) => {
+    displaySection.innerHTML += `
+    <div class="availableBook">
+      <div class="books_lis_div"> 
+        <p class="availableBook_title">${availableBook.title}</p>
+        <p class="availableBook_author">${availableBook.author}</p>
+      </div>
+      <button class="remove">Remove</button>
+    </div> `;
+
+    const deleteBtn = document.querySelector('.remove');
+    deleteBtn.addEventListener('click', () => {
+      ClassLocalStorage.deleteBook([index]);
+    });
+  });
+};
 
 /* add button */
 addBtn.addEventListener('click', addBook);
