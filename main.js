@@ -13,12 +13,10 @@ const clear = () => {
 
 class ClassLocalStorage {
   /* save to localStorage */
-
   static saveToLocalStorage = (availableBooks) => localStorage
     .setItem('availableBooks', JSON.stringify(availableBooks));
 
   /* get from localStorage */
-
   static getFromLocalStorage = () => {
     if (JSON.parse(localStorage.getItem('availableBooks'))) {
       availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
