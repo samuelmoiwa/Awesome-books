@@ -51,7 +51,7 @@ body {
 
 .remove {
   width: 70px;
-  height: 20px;  
+  height: 20px;
 }
 
 .line_divider {
@@ -80,6 +80,7 @@ body {
 .input_div {
   width: 95%;
 }
+
 .input_author {
   width: 100%;
   height: 20px;
@@ -100,5 +101,5 @@ body {
   justify-content: end;
   width: 100%;
   margin-top: 5px;
-  padding-bottom: 20px ;
+  padding-bottom: 20px;
 }
