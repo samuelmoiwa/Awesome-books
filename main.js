@@ -34,19 +34,13 @@ const displayItem = () => {
   availableBooks.forEach((availableBook, index) => {
     displaySection.innerHTML += `
     <div class="availableBook">
-      <p>${availableBook.title}</p>
-      <p>${availableBook.author}</p>
+      <div class="books_lis_div"> 
+        <p class="availableBook_title">${availableBook.title}</p>
+        <p class="availableBook_author">${availableBook.author}</p>
+      </div>
+      <button class="remove">Remove</button>
     </div> `;
 
-    /*  Delete btn created */
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
-    removeBtn.classList.add('remove');
-    displaySection.appendChild(removeBtn);
-    displaySection.innerHTML += `
-    <hr>
-    `;
-    /*  Delete btn remove function */
     const deleteBtn = document.querySelector('.remove');
     deleteBtn.addEventListener('click', () => {
       deleteBook(index);
