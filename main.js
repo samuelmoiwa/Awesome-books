@@ -21,13 +21,13 @@ class classAddBooks {
     this.availableBooks.push(addedBook);
     clear();
     this.saveToLocalStorage(this.availableBooks);
-    displayItem();
+    this.displayItem();
   };
 
   static deleteBook = (index) => {
     const BookList = this.availableBooks.filter((book) => book !== this.availableBooks[index]);
     this.saveToLocalStorage(BookList);
-    displayItem();
+    this.displayItem();
   };
 
   /* save to localStorage */
@@ -40,6 +40,28 @@ class classAddBooks {
       this.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
     }
   };
+
+  /* display items */
+  static displayItem = () => {
+    this.getFromLocalStorage();
+    displaySection.innerHTML = '';
+    this.availableBooks.forEach((availableBook, index) => {
+      displaySection.innerHTML += `
+      <div class="availableBook">
+        <div class="books_lis_div"> 
+          <p class="availableBook_title">${availableBook.title}</p>
+          <p class="availableBook_author">${availableBook.author}</p>
+        </div>
+        <button class="remove">Remove</button>
+      </div> 
+      `;
+
+      const deleteBtn = document.querySelector('.remove');
+      deleteBtn.addEventListener('click', () => {
+        this.deleteBook(index);
+      });
+    });
+  };
 }
 
 const clear = () => {
@@ -47,29 +69,8 @@ const clear = () => {
   author.value = '';
 };
 
-/* display items */
-const displayItem = () => {
-  classAddBooks.getFromLocalStorage();
-  classAddBooks.availableBooks.forEach((availableBook, index) => {
-    displaySection.innerHTML += `
-    <div class="availableBook">
-      <div class="books_lis_div"> 
-        <p class="availableBook_title">${availableBook.title}</p>
-        <p class="availableBook_author">${availableBook.author}</p>
-      </div>
-      <button class="remove">Remove</button>
-    </div> 
-    `;
-
-    const deleteBtn = document.querySelector('.remove');
-    deleteBtn.addEventListener('click', () => {
-      classAddBooks.deleteBook(index);
-    });
-  });
-};
-
 /* add button */
 addBtn.addEventListener('click', classAddBooks.addBook);
 document.addEventListener('DOMContentLoaded', () => {
-  displayItem();
+  classAddBooks.displayItem();
 });
