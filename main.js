@@ -7,9 +7,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 
 class classAddBooks {
-  constructor() {
-    this.availableBooks = [];
-  }
+  static availableBooks = [];
 
   static addBook = (element) => {
     element.preventDefault();
@@ -62,6 +60,7 @@ const displayItem = () => {
         <p class="availableBook_author">${availableBook.author}</p>
       </div>
       <button class="remove">Remove</button>
+      
     </div> `;
 
     const deleteBtn = document.querySelector('.remove');
@@ -79,17 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Implementation of Single-Page Application */
 function shufflePage(page) {
-  document.querySelectorAll('div.main').forEach(page => {
+  document.querySelectorAll('div.main').forEach((page) => {
     page.style.display = 'none';
   });
 
   document.querySelector(`#${page}`).style.display = 'block';
 }
 
-
-document.querySelectorAll('.nav-list a').forEach(link => {
+document.querySelectorAll('.nav-list a').forEach((link) => {
   link.addEventListener('click', (e) => {
     shufflePage(e.target.dataset.page);
   });
 });
-
