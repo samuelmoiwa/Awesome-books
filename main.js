@@ -59,8 +59,8 @@ const displayItem = () => {
         <p class="availableBook_title">${availableBook.title}</p>
         <p class="availableBook_author">${availableBook.author}</p>
       </div>
-      <button class="remove">Remove</button>
-      
+      <button class="remove">Remove</button>  
+
     </div> `;
 
     const deleteBtn = document.querySelector('.remove');
@@ -74,4 +74,19 @@ const displayItem = () => {
 addBtn.addEventListener('click', classAddBooks.addBook);
 document.addEventListener('DOMContentLoaded', () => {
   displayItem();
+});
+
+/* Implementation of Single-Page Application */
+function shufflePage(page) {
+  document.querySelectorAll('div.main').forEach((page) => {
+    page.style.display = 'none';
+  });
+
+  document.querySelector(`#${page}`).style.display = 'block';
+}
+
+document.querySelectorAll('.nav-list a').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    shufflePage(e.target.dataset.page);
+  });
 });
