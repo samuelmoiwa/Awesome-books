@@ -19,7 +19,7 @@ div.main {
   width: 95%;
   font-size: 1.5rem;
   justify-content: space-between;
-  margin: 1rem auto ;
+  margin: 1rem auto;
   padding: 1rem;
   border: 2px solid #000;
 }
@@ -30,7 +30,7 @@ div.main {
 }
 
 .tint {
-  color: #00A98F;
+  color: #00a98f;
 }
 
 .flex {
@@ -53,7 +53,7 @@ a {
 }
 
 a:hover {
-  color: #00A98F;
+  color: #00a98f;
 }
 
 .nav-list li:nth-of-type(2) {
@@ -91,7 +91,6 @@ h1 {
 .availableBook {
   display: flex;
   flex-direction: row;
-  align-items: center;
   width: 100%;
   height: 30px;
   align-items: center;
@@ -176,7 +175,7 @@ input[type='text'] {
   width: 100%;
   height: 2.5rem;
   margin: 1rem auto;
-  background: #00A98F;
+  background: #00a98f;
   border: none;
   color: aliceblue;
   cursor: pointer;
@@ -195,6 +194,6 @@ input[type='text'] {
   width: 100%;
   padding: 1rem;
   margin: 0 auto;
-  background: #00A98F;
+  background: #00a98f;
   text-align: center;
 }
