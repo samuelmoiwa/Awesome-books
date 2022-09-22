@@ -7,9 +7,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 
 class classAddBooks {
-  constructor() {
-    this.availableBooks = [];
-  }
+  static availableBooks = [];
 
   static addBook = (element) => {
     element.preventDefault();
