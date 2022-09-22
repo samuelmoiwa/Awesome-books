@@ -91,6 +91,7 @@ h1 {
 .availableBook {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   height: 30px;
   align-items: center;
@@ -100,8 +101,9 @@ h1 {
 .books_lis_div {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
-  gap: 10px;
+  gap: 40px;
 }
 
 .remove {
@@ -165,9 +167,13 @@ input[type='text'] {
   text-align: right;
 }
 
+.social_links {
+  font-weight: 700;
+}
+
 #add_btn {
   justify-self: flex-end;
-  width: 4rem;
+  width: 100%;
   height: 2.5rem;
   margin: 1rem auto;
   background: #00A98F;
