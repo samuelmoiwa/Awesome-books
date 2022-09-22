@@ -62,7 +62,8 @@ const displayItem = () => {
         <p class="availableBook_author">${availableBook.author}</p>
       </div>
       <button class="remove">Remove</button>
-    </div> `;
+    </div> 
+    `;
 
     const deleteBtn = document.querySelector('.remove');
     deleteBtn.addEventListener('click', () => {
