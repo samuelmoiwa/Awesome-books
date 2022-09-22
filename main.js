@@ -18,16 +18,20 @@ class classAddBooks {
       author: author.value,
     };
 
-    this.availableBooks.push(addedBook);
-    clear();
-    this.saveToLocalStorage(this.availableBooks);
-    this.displayItem();
+    if (Array.isArray(this.availableBooks)) {
+      this.availableBooks.push(addedBook);
+      clear();
+      this.saveToLocalStorage(this.availableBooks);
+      displayItem();
+    } else {
+      console.log('arr variable does not store an array');
+    }
   };
 
   static deleteBook = (index) => {
     const BookList = this.availableBooks.filter((book) => book !== this.availableBooks[index]);
     this.saveToLocalStorage(BookList);
-    this.displayItem();
+    displayItem();
   };
 
   /* save to localStorage */
@@ -40,28 +44,6 @@ class classAddBooks {
       this.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
     }
   };
-
-  /* display items */
-  static displayItem = () => {
-    this.getFromLocalStorage();
-    displaySection.innerHTML = '';
-    this.availableBooks.forEach((availableBook, index) => {
-      displaySection.innerHTML += `
-      <div class="availableBook">
-        <div class="books_lis_div"> 
-          <p class="availableBook_title">${availableBook.title}</p>
-          <p class="availableBook_author">${availableBook.author}</p>
-        </div>
-        <button class="remove">Remove</button>
-      </div> 
-      `;
-
-      const deleteBtn = document.querySelector('.remove');
-      deleteBtn.addEventListener('click', () => {
-        this.deleteBook(index);
-      });
-    });
-  };
 }
 
 const clear = () => {
@@ -69,8 +51,30 @@ const clear = () => {
   author.value = '';
 };
 
+/* display items */
+const displayItem = () => {
+  classAddBooks.getFromLocalStorage();
+  displaySection.innerHTML = '';
+  classAddBooks.availableBooks.forEach((availableBook, index) => {
+    displaySection.innerHTML += `
+    <div class="availableBook">
+      <div class="books_lis_div"> 
+        <p class="availableBook_title">${availableBook.title}</p>
+        <p class="availableBook_author">${availableBook.author}</p>
+      </div>
+      <button class="remove">Remove</button>
+    </div> 
+    `;
+
+    const deleteBtn = document.querySelector('.remove');
+    deleteBtn.addEventListener('click', () => {
+      classAddBooks.deleteBook(index);
+    });
+  });
+};
+
 /* add button */
 addBtn.addEventListener('click', classAddBooks.addBook);
 document.addEventListener('DOMContentLoaded', () => {
-  classAddBooks.displayItem();
+  displayItem();
 });
