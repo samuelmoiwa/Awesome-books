@@ -89,7 +89,7 @@ function shufflePage(page) {
 
 document.querySelectorAll('.nav-list a').forEach(link => {
   link.addEventListener('click', (e) => {
-    console.log(shufflePage(e.target.dataset.page));
+    shufflePage(e.target.dataset.page);
   });
 });
 
