@@ -1,10 +1,35 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 const displaySection = document.querySelector('.book_list');
 const addBtn = document.querySelector('#add_btn');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 
-let availableBooks = [];
+class classAddBooks {
+  constructor() {
+    this.availableBooks = [];
+  }
+
+  static addBook = (element) => {
+    element.preventDefault();
+    const addedBook = {
+      title: title.value,
+      author: author.value,
+    };
+
+    this.availableBooks.push(addedBook);
+    clear();
+    ClassLocalStorage.saveToLocalStorage(this.availableBooks);
+    displayItem();
+  };
+
+  static deleteBook = (index) => {
+    const BookList = this.availableBooks.filter((book) => book !== this.availableBooks[index]);
+    ClassLocalStorage.saveToLocalStorage(BookList);
+    displayItem();
+  };
+}
 
 const clear = () => {
   title.value = '';
@@ -19,14 +44,8 @@ class ClassLocalStorage {
   /* get from localStorage */
   static getFromLocalStorage = () => {
     if (JSON.parse(localStorage.getItem('availableBooks'))) {
-      availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
+      classAddBooks.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
     }
-  };
-
-  static deleteBook = (index) => {
-    const BookList = availableBooks.filter((book) => book !== availableBooks[index]);
-    this.saveToLocalStorage(BookList);
-    displayItem();
   };
 }
 
@@ -35,7 +54,7 @@ const displayItem = () => {
   ClassLocalStorage.getFromLocalStorage();
   displaySection.innerHTML = '';
 
-  availableBooks.forEach((availableBook, index) => {
+  classAddBooks.availableBooks.forEach((availableBook, index) => {
     displaySection.innerHTML += `
     <div class="availableBook">
       <div class="books_lis_div"> 
@@ -47,26 +66,13 @@ const displayItem = () => {
 
     const deleteBtn = document.querySelector('.remove');
     deleteBtn.addEventListener('click', () => {
-      ClassLocalStorage.deleteBook([index]);
+      classAddBooks.deleteBook([index]);
     });
   });
 };
 
-const addBook = (element) => {
-  element.preventDefault();
-  const addedBook = {
-    title: title.value,
-    author: author.value,
-  };
-
-  availableBooks.push(addedBook);
-  clear();
-  ClassLocalStorage.saveToLocalStorage(availableBooks);
-  displayItem();
-};
-
 /* add button */
-addBtn.addEventListener('click', addBook);
+addBtn.addEventListener('click', classAddBooks.addBook);
 document.addEventListener('DOMContentLoaded', () => {
   displayItem();
 });
