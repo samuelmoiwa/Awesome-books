@@ -76,3 +76,20 @@ addBtn.addEventListener('click', classAddBooks.addBook);
 document.addEventListener('DOMContentLoaded', () => {
   displayItem();
 });
+
+/* Implementation of Single-Page Application */
+function shufflePage(page) {
+  document.querySelectorAll('div.main').forEach(page => {
+    page.style.display = 'none';
+  });
+
+  document.querySelector(`#${page}`).style.display = 'block';
+}
+
+
+document.querySelectorAll('.nav-list a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    console.log(shufflePage(e.target.dataset.page));
+  });
+});
+

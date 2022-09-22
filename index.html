@@ -9,30 +9,56 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <nav class="nav-bar flex">
+      <div class="logo">
+        Awe<span class="tint">some</span> Books
+      </div>
+      <ul class="nav-list flex">
+        <li><a href="#" data-page="one">List</a></li>
+        <li><a href="#" data-page="two">Add new</a></li>
+        <li><a href="#" data-page="three">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="time"></div>
 
-  <div class="main_div"> 
+  <div class="main_div main" id="one"> 
 
-    <h1>Awesome Books</h1>
+    <h1>All Awesome Books</h1>
 
     <div class="book_list"></div>
 
-    <div class="line_divider"></div>
+  </div>
 
-    <div class="add_book_div">
-      <h3>Add a new book</h3>
-      <form action="post" class="form">
-        <div class="input_div">
-          <input type="text" name="author" id="author" placeholder="Author" class="input_author"/>
-        </div>
-        <div class="input_div">
-          <input type="text" name="title" id="title" placeholder="Title" class="input_title" />
-        </div>
-        <div class="submitBtn_div">
-          <input id="add_btn" type="submit" value="Add"/>
-        </div>
-      </form>
-    </div>
-
+  <div class="add_book_div main" id="two">
+    <h3>Add a new book</h3>
+    <form action="post" class="form">
+      <div class="input_div">
+        <input type="text" name="author" id="author" placeholder="Author" class="input_author"/>
+      </div>
+      <div class="input_div">
+        <input type="text" name="title" id="title" placeholder="Title" class="input_title" />
+      </div>
+      <div class="submitBtn_div">
+        <input id="add_btn" type="submit" value="Add"/>
+      </div>
+    </form>
+  </div>
+  <div class="main" id="three">
+    <h3>Contact Information</h3>
+    <p class="para">Thank you for interacting with our Awesome Book App.</p>
+    <p class="para">You can reach out to us via:</p>
+    <ul class="list">
+      <li>Our <a href="https://www.github.com/samuelmoiwa" target="_blank">Github handle</a></li>
+      <li>A tweet on <a href="https://www.twitter.com/samuelmoiwa" target="_blank">Twitter</a></li>
+      <li>Connect on <a href="https://www.linkedin.com/in/ing-abdulai-samuel-moiwa-726340142/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="footer">
+    <small>
+      &copy; All rights reserved 2022.
+    </small>
   </div>
   <script src="main.js"></script> 
 </body>
