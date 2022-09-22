@@ -18,25 +18,14 @@ class classAddBooks {
 
     this.availableBooks.push(addedBook);
     clear();
-    this.saveToLocalStorage(this.availableBooks);
+    ClassLocalStorage.saveToLocalStorage(this.availableBooks);
     displayItem();
   };
 
   static deleteBook = (index) => {
     const BookList = this.availableBooks.filter((book) => book !== this.availableBooks[index]);
-    this.saveToLocalStorage(BookList);
+    ClassLocalStorage.saveToLocalStorage(BookList);
     displayItem();
-  };
-
-  /* save to localStorage */
-  static saveToLocalStorage = (availableBooks) => localStorage
-    .setItem('availableBooks', JSON.stringify(availableBooks));
-
-  /* get from localStorage */
-  static getFromLocalStorage = () => {
-    if (JSON.parse(localStorage.getItem('availableBooks'))) {
-      this.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
-    }
   };
 }
 
@@ -45,10 +34,24 @@ const clear = () => {
   author.value = '';
 };
 
+class ClassLocalStorage {
+  /* save to localStorage */
+  static saveToLocalStorage = (availableBooks) => localStorage
+    .setItem('availableBooks', JSON.stringify(availableBooks));
+
+  /* get from localStorage */
+  static getFromLocalStorage = () => {
+    if (JSON.parse(localStorage.getItem('availableBooks'))) {
+      classAddBooks.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
+    }
+  };
+}
+
 /* display items */
 const displayItem = () => {
-  classAddBooks.getFromLocalStorage();
+  ClassLocalStorage.getFromLocalStorage();
   displaySection.innerHTML = '';
+
   classAddBooks.availableBooks.forEach((availableBook, index) => {
     displaySection.innerHTML += `
     <div class="availableBook">
@@ -57,12 +60,12 @@ const displayItem = () => {
         <p class="availableBook_author">${availableBook.author}</p>
       </div>
       <button class="remove">Remove</button>
-    </div> 
-    `;
+      
+    </div> `;
 
     const deleteBtn = document.querySelector('.remove');
     deleteBtn.addEventListener('click', () => {
-      classAddBooks.deleteBook(index);
+      classAddBooks.deleteBook([index]);
     });
   });
 };
