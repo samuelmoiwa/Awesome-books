@@ -90,4 +90,3 @@ document.querySelectorAll('.nav-list a').forEach((link) => {
     shufflePage(e.target.dataset.page);
   });
 });
-
