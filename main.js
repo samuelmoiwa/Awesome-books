@@ -50,8 +50,6 @@ const clear = () => {
 /* display items */
 const displayItem = () => {
   classAddBooks.getFromLocalStorage();
-  displaySection.innerHTML = '';
-
   classAddBooks.availableBooks.forEach((availableBook, index) => {
     displaySection.innerHTML += `
     <div class="availableBook">
@@ -65,7 +63,7 @@ const displayItem = () => {
 
     const deleteBtn = document.querySelector('.remove');
     deleteBtn.addEventListener('click', () => {
-      classAddBooks.deleteBook([index]);
+      classAddBooks.deleteBook(index);
     });
   });
 };
