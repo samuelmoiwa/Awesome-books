@@ -60,6 +60,7 @@ const displayItem = () => {
         <p class="availableBook_author">${availableBook.author}</p>
       </div>
       <button class="remove">Remove</button>  
+
     </div> `;
 
     const deleteBtn = document.querySelector('.remove');
@@ -89,3 +90,4 @@ document.querySelectorAll('.nav-list a').forEach((link) => {
     shufflePage(e.target.dataset.page);
   });
 });
+
