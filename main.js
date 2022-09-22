@@ -16,14 +16,10 @@ class classAddBooks {
       author: author.value,
     };
 
-    if (Array.isArray(this.availableBooks)) {
-      this.availableBooks.push(addedBook);
-      clear();
-      this.saveToLocalStorage(this.availableBooks);
-      displayItem();
-    } else {
-      console.log('arr variable does not store an array');
-    }
+    this.availableBooks.push(addedBook);
+    clear();
+    this.saveToLocalStorage(this.availableBooks);
+    displayItem();
   };
 
   static deleteBook = (index) => {
