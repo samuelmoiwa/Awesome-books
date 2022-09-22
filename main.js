@@ -20,14 +20,25 @@ class classAddBooks {
 
     this.availableBooks.push(addedBook);
     clear();
-    saveToLocalStorage(this.availableBooks);
+    this.saveToLocalStorage(this.availableBooks);
     displayItem();
   };
 
   static deleteBook = (index) => {
     const BookList = this.availableBooks.filter((book) => book !== this.availableBooks[index]);
-    saveToLocalStorage(BookList);
+    this.saveToLocalStorage(BookList);
     displayItem();
+  };
+
+  /* save to localStorage */
+  static saveToLocalStorage = (availableBooks) => localStorage
+    .setItem('availableBooks', JSON.stringify(availableBooks));
+
+  /* get from localStorage */
+  static getFromLocalStorage = () => {
+    if (JSON.parse(localStorage.getItem('availableBooks'))) {
+      this.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
+    }
   };
 }
 
@@ -36,20 +47,9 @@ const clear = () => {
   author.value = '';
 };
 
-/* save to localStorage */
-const saveToLocalStorage = (availableBooks) => localStorage
-  .setItem('availableBooks', JSON.stringify(availableBooks));
-
-/* get from localStorage */
-const getFromLocalStorage = () => {
-  if (JSON.parse(localStorage.getItem('availableBooks'))) {
-    classAddBooks.availableBooks = JSON.parse(localStorage.getItem('availableBooks'));
-  }
-};
-
 /* display items */
 const displayItem = () => {
-  getFromLocalStorage();
+  classAddBooks.getFromLocalStorage();
   displaySection.innerHTML = '';
 
   classAddBooks.availableBooks.forEach((availableBook, index) => {
