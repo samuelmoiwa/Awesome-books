@@ -6,26 +6,34 @@
   <title>Awesome Books</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Awesome Books</h1>
+  <div class="main_div"> 
 
-  <div class="book_list"></div>
+    <h1>Awesome Books</h1>
 
-  <form action="post">
+    <div class="book_list"></div>
 
-    <div>
-      <input type="text" name="author" id="author" placeholder="Author"/>
-    </div><br/>
-    <div>
-      <input type="text" name="title" id="title" placeholder="Title" />
-    </div><br/>
+    <div class="line_divider"></div>
 
-    <input id="add_btn" type="submit" value="Add"/>
+    <div class="add_book_div">
+      <h3>Add a new book</h3>
+      <form action="post" class="form">
+        <div class="input_div">
+          <input type="text" name="author" id="author" placeholder="Author" class="input_author"/>
+        </div>
+        <div class="input_div">
+          <input type="text" name="title" id="title" placeholder="Title" class="input_title" />
+        </div>
+        <div class="submitBtn_div">
+          <input id="add_btn" type="submit" value="Add"/>
+        </div>
+      </form>
+    </div>
 
-  </form>
-
-  <script src="main.js"></script> 
+  </div>  
 </body>
+<script src="main.js"></script>
 </html>
