@@ -12,6 +12,9 @@ class classAddBooks {
   }
 
   static addBook = (element) => {
+    const title = document.querySelector('#title');
+    const author = document.querySelector('#author');
+
     element.preventDefault();
     const addedBook = {
       title: title.value,
